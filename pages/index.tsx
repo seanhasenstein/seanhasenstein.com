@@ -17,16 +17,16 @@ export default function Home() {
           className="h-16 w-16 bg-gray-500 rounded-full"
         />
         <h1 className="mt-6 text-4xl font-bold tracking-tight text-gray-800">
-          Fullstack web developer
+          Full stack web developer
         </h1>
         <p className="mt-6 max-w-2xl text-gray-600">
-          Hi, I'm Sean, a fullstack web developer based in Sheboygan, Wisconsin.
-          I have {new Date().getFullYear() - 2014} years of exprience designing
-          and developing websites, fullstack web applications, ecommerce
-          solutions, content management systems, dashboards, and more.
+          Hi, I'm Sean, a full stack web developer based in Sheboygan,
+          Wisconsin. I have {new Date().getFullYear() - 2014} years of exprience
+          designing and developing websites, web applications, ecommerce
+          solutions, content management systems, dashboards, APIs, and more.
         </p>
         <p className="mt-6 max-w-2xl text-gray-600">
-          If you're interested in working together,{' '}
+          If you're interested in working together feel free to{' '}
           <a
             href="mailto:seanhasenstein@gmail.com"
             target="_blank"

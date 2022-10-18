@@ -23,7 +23,7 @@ export default function Layout(props: Props) {
       </div>
       <footer className="px-6">
         <div className="mx-auto py-10 max-w-7xl flex flex-col sm:flex-row justify-between border-t border-gray-300/75">
-          <div className="flex flex-col items-center justify-center sm:justify-between gap-12 sm:flex-row text-gray-700 font-medium">
+          <div className="flex flex-col justify-center sm:justify-between sm:items-center gap-8 md:gap-16 sm:flex-row text-gray-700 font-medium">
             <a
               href="mailto:seanhasenstein@gmail.com"
               target="_blank"
@@ -32,8 +32,16 @@ export default function Layout(props: Props) {
             >
               Send me an email
             </a>
+            <a
+              href="https://res.cloudinary.com/dra3wumrv/image/upload/v1666116546/resume-sean-hasenstein.pdf"
+              target="_blank"
+              rel="noreferrer"
+              className="transition-all hover:text-black hover:underline"
+            >
+              My resume
+            </a>
           </div>
-          <div className="mt-7 sm:mt-0 text-gray-500 text-center sm:text-right">
+          <div className="mt-12 sm:mt-0 text-gray-500 sm:text-right">
             &copy; {new Date().getFullYear()} Sean Hasenstein. All rights
             reserved.
           </div>

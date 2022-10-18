@@ -16,28 +16,32 @@ export default function Home() {
           height={64}
           className="h-16 w-16 bg-gray-500 rounded-full"
         />
-        <h1 className="mt-6 text-4xl font-bold tracking-tight text-gray-800">
-          Full stack web developer
+        <h1 className="mt-6 text-4xl font-bold tracking-tight text-gray-900">
+          Sean Hasenstein
         </h1>
+        <h2 className="mt-0.5 font-medium text-lg text-gray-600">
+          Full stack web developer
+        </h2>
         <p className="mt-6 max-w-2xl text-gray-600">
-          Hi, I'm Sean, a full stack web developer based in Sheboygan,
-          Wisconsin. I have {new Date().getFullYear() - 2014} years of exprience
-          designing and developing websites, web applications, ecommerce
-          solutions, content management systems, dashboards, APIs, and more.
+          Hi, I'm Sean, a web developer based in Sheboygan, Wisconsin. I have{' '}
+          {new Date().getFullYear() - 2014} years of exprience working with
+          clients to create and improve their digital products. This includes
+          static marketing websites, full stack web applications, e-commerce
+          solutions, custom dashboards, and more.
         </p>
+        <p></p>
         <p className="mt-6 max-w-2xl text-gray-600">
-          If you're interested in working together feel free to{' '}
+          I welcome discussing your project and helping you find success.{' '}
           <a
             href="mailto:seanhasenstein@gmail.com"
             target="_blank"
             rel="noreferrer"
             className="underline transition text-gray-900 hover:text-blue-700"
           >
-            send me a message
+            Let's talk!
           </a>
-          .
         </p>
-        <div className="mt-7 flex items-center gap-6">
+        <div className="mt-7 flex items-center gap-5">
           <a
             href="https://github.com/seanhasenstein"
             target="_blank"

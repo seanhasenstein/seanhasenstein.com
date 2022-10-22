@@ -33,7 +33,7 @@ export default function Layout(props: Props) {
               Send me an email
             </a>
             <a
-              href="https://res.cloudinary.com/dra3wumrv/image/upload/v1666116546/resume-sean-hasenstein.pdf"
+              href="https://res.cloudinary.com/dra3wumrv/image/upload/v1666413646/sean-hasenstein-resume.pdf"
               target="_blank"
               rel="noreferrer"
               className="transition-all hover:text-black hover:underline"

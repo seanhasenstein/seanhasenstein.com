@@ -32,14 +32,22 @@ export default function Layout(props: Props) {
             >
               Send me an email
             </a>
-            <a
+            {/* <a
               href="https://res.cloudinary.com/dra3wumrv/image/upload/v1666413646/sean-hasenstein-resume.pdf"
               target="_blank"
               rel="noreferrer"
               className="transition-all hover:text-black hover:underline"
             >
               My resume
-            </a>
+            </a> */}
+            {/* <a
+              href="https://www.linkedin.com/in/seanhasenstein/"
+              target="_blank"
+              rel="noreferrer"
+              className="transition-all hover:text-black hover:underline"
+            >
+              LinkedIn profile
+            </a> */}
           </div>
           <div className="mt-12 sm:mt-0 text-gray-500 sm:text-right">
             &copy; {new Date().getFullYear()} Sean Hasenstein. All rights

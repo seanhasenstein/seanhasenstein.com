@@ -28,7 +28,7 @@ export default function Layout(props: Props) {
               href="mailto:seanhasenstein@gmail.com"
               target="_blank"
               rel="noreferrer"
-              className="transition-all hover:text-black hover:underline"
+              className="underline transition-all hover:text-black"
             >
               Send me an email
             </a>

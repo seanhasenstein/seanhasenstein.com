@@ -36,7 +36,7 @@ export default function Home() {
             href="mailto:seanhasenstein@gmail.com"
             target="_blank"
             rel="noreferrer"
-            className="underline transition text-gray-900 hover:text-blue-700"
+            className="underline transition text-gray-900 hover:text-black"
           >
             Let's talk!
           </a>

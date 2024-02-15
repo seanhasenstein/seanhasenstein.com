@@ -31,7 +31,7 @@ export default function WorkPreview(props: Props) {
           </a>
         </h3>
         <p className="relative z-10 mt-2 text-gray-600">{props.description}</p>
-        <div className="relative z-10 mt-6 flex items-center text-sm font-medium text-gray-400 transition group-hover:text-blue-700">
+        <div className="relative z-10 mt-6 flex items-center text-sm font-medium text-gray-400 transition group-hover:text-blue-800 group-hover:underline">
           <LinkIcon />
           <span className="ml-2">{props.domain}</span>
         </div>

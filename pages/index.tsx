@@ -46,7 +46,7 @@ export default function Home() {
             href="https://github.com/seanhasenstein"
             target="_blank"
             rel="noreferrer"
-            className="text-gray-500/50 hover:text-gray-600/25 transition"
+            className="text-gray-500/50 hover:text-gray-600/50 transition"
           >
             <GitHubIcon />
           </a>
@@ -54,7 +54,7 @@ export default function Home() {
             href="https://www.linkedin.com/in/seanhasenstein/"
             target="_blank"
             rel="noreferrer"
-            className="text-gray-500/50 hover:text-gray-600/25 transition"
+            className="text-gray-500/50 hover:text-gray-600/50 transition"
           >
             <LinkedInIcon />
           </a>

@@ -7,7 +7,7 @@ type Props = {
 };
 
 export default function Layout(props: Props) {
-  const defaultTitle = 'Sean Hasenstein | Full Stack Web Developer';
+  const defaultTitle = 'Sean Hasenstein | Senior Full-Stack Software Engineer';
 
   return (
     <div className="h-screen flex flex-col justify-between">
@@ -32,14 +32,14 @@ export default function Layout(props: Props) {
             >
               Send me an email
             </a>
-            {/* <a
-              href="https://res.cloudinary.com/dra3wumrv/image/upload/v1666413646/sean-hasenstein-resume.pdf"
+            <a
+              href="https://sean-hasenstein.s3.us-east-1.amazonaws.com/resume.pdf"
               target="_blank"
               rel="noreferrer"
-              className="transition-all hover:text-black hover:underline"
+              className="underline transition-all hover:text-black"
             >
-              My resume
-            </a> */}
+              See my resume
+            </a>
             {/* <a
               href="https://www.linkedin.com/in/seanhasenstein/"
               target="_blank"

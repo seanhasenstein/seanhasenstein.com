@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Layout from '../components/Layout';
 import { GitHubIcon, LinkedInIcon } from '../components/Icons';
 import WorkPreview from '../components/WorkPreview';
-import { workExamples } from '../data';
+import { everdaysItems, freelanceItems, workExamples } from '../data';
 
 export default function Home() {
   return (
@@ -21,7 +21,7 @@ export default function Home() {
         <h2 className="mt-0.5 font-medium text-xl text-gray-600">
           Senior Full-Stack Software Engineer
         </h2>
-        <p className="mt-6 max-w-2xl text-gray-600">
+        <p className="mt-6 max-w-3xl text-gray-600">
           Hi, I'm Sean, a Senior Full-Stack Software Engineer based in
           Sheboygan, Wisconsin. With {new Date().getFullYear() - 2014}+ years of
           experience, I've helped startups and businesses build scalable
@@ -30,15 +30,14 @@ export default function Home() {
           environments.
         </p>
         <p className="mt-6 max-w-3xl text-gray-600">
-          Below you'll find examples of my freelance work, or for more on my
-          career,{' '}
+          Explore my background and freelance projects below, or{' '}
           <a
             href="https://sean-hasenstein.s3.us-east-1.amazonaws.com/resume.pdf"
             target="_blank"
             rel="noreferrer"
-            className="underline transition text-gray-900 hover:text-black"
+            className="underline transition hover:text-black"
           >
-            see my resume
+            see my full resume here
           </a>
           .
         </p>
@@ -61,11 +60,46 @@ export default function Home() {
           </a>
         </div>
       </div>
-      <h2 className="mt-10 sm:mt-20 text-gray-900 font-bold">
-        Examples of my freelance work
-      </h2>
-      <div className="mt-4 border-t border-gray-300/75">
-        <ul className="mt-10 grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
+      {/*  */}
+      <h3 className="mt-10 sm:mt-20 text-gray-900 font-bold max-w-3xl flex justify-between sm:flex-row flex-col">
+        <span>
+          Senior Full-Stack Software Engineer at{' '}
+          <a
+            href="https://everdays.com/"
+            target="_blank"
+            rel="noreferrer"
+            className="underline"
+          >
+            Everdays
+          </a>
+        </span>
+        <span>Nov. 2022 - Aug. 2025</span>
+      </h3>
+      <div className="mt-4 max-w-3xl border-t border-gray-300/75">
+        <ul className="pl-4">
+          {everdaysItems.map((item, index) => (
+            <li key={index} className="mt-4 max-w-3xl text-gray-600 list-disc">
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+      {/*  */}
+      <h3 className="mt-10 sm:mt-20 text-gray-900 font-bold max-w-3xl flex justify-between sm:flex-row flex-col">
+        <span>Freelance Full-Stack Web Developer & Designer</span>
+        <span>May 2014 - Oct. 2022</span>
+      </h3>
+      <div className="mt-4 max-w-3xl border-t border-gray-300/75">
+        <ul className="pl-4">
+          {freelanceItems.map((item, index) => (
+            <li key={index} className="mt-4 max-w-3xl text-gray-600 list-disc">
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="mt-4 max-w-3xl">
+        <ul className="mt-10 grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2">
           {workExamples.map(example => (
             <WorkPreview
               key={example.id}

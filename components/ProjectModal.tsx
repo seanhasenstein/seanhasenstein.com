@@ -60,7 +60,7 @@ export default function ProjectModal({
     if (clickedImageIndex !== null && imageRefs.current[clickedImageIndex]) {
       const timer = setTimeout(() => {
         imageRefs.current[clickedImageIndex]?.scrollIntoView({
-          behavior: 'instant',
+          behavior: 'auto',
           block: 'center',
         });
       }, 50); // Small delay to ensure layout has updated

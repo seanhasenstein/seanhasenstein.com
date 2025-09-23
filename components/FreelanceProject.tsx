@@ -20,16 +20,16 @@ export default function FreelanceProject({
     <button
       type="button"
       onClick={handleOpenModal}
-      className="group relative flex flex-col md:flex-row-reverse gap-6 transition-all lg:hover:!opacity-100 lg:group-hover/list:opacity-50 text-left"
+      className="group relative flex flex-col md:flex-row-reverse gap-6 transition-all hover:!opacity-100 group-hover/list:opacity-50 text-left"
     >
-      <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-gray-200/50" />
+      <div className="absolute -inset-x-4 -inset-y-4 z-0 rounded-md transition motion-reduce:transition-none lg:-inset-x-6 block group-hover:bg-gray-200/50" />
       <div className="z-10">
         <h3 className="font-medium leading-snug text-slate-900">
           <span className="inline-flex items-baseline font-medium leading-tight text-slate-900 group text-base hover:text-blue-800 focus-visible:text-blue-800">
-            <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block" />
+            <span className="absolute -inset-x-4 -inset-y-2.5 rounded md:-inset-x-6 md:-inset-y-4 block" />
             {title}
             <ArrowTopRightOnSquareIcon
-              className="inline-block h-4 w-4 shrink-0 lg:transition-transform lg:group-hover:translate-x-1 lg:group-hover:-translate-y-1 group-focus-visible:translate-x-1 group-focus-visible:-translate-y-1 motion-reduce:transition-none ml-1 mr-1 pt-px"
+              className="inline-block h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 group-focus-visible:translate-x-1 group-focus-visible:-translate-y-1 motion-reduce:transition-none ml-1 mr-1 pt-px"
               aria-hidden="true"
             />
           </span>

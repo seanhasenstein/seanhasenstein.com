@@ -75,6 +75,14 @@ export default function Home() {
           . I thrive on taking products from conception to production in
           fast-paced, collaborative environments.
         </p>
+        <a
+          href="mailto:seanhasenstein@gmail.com"
+          target="_blank"
+          rel="noreferrer noopener"
+          className="bg-slate-900 text-white inline-block px-4 py-2.5 mt-6 rounded-md text-sm font-semibold leading-tight hover:bg-black focus-visible:bg-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 transition-all"
+        >
+          Send me a message
+        </a>
         <div className="mt-7 flex items-center gap-3">
           <a
             href="https://github.com/seanhasenstein"
@@ -181,7 +189,11 @@ export default function Home() {
               <div key={index} className="mb-16 last:mb-0">
                 <FreelanceProject
                   {...project}
-                  handleOpenModal={() => handleOpenModal(project)}
+                  handleOpenModal={(e: React.MouseEvent) => {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    handleOpenModal(project);
+                  }}
                 />
               </div>
             );

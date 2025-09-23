@@ -1,7 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 import { Dialog } from '@headlessui/react';
-import { GlobeAltIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import clsx from 'clsx';
+import {
+  GlobeAltIcon,
+  CursorArrowRaysIcon,
+  XMarkIcon,
+} from '@heroicons/react/24/outline';
 
 type Props = {
   open: boolean;
@@ -25,6 +30,11 @@ export default function ProjectModal({
   totalImages = 0,
 }: Props) {
   const [shouldRender, setShouldRender] = useState(false);
+  const [imageColumns, setImageColumns] = useState(2);
+  const [clickedImageIndex, setClickedImageIndex] = useState<number | null>(
+    null
+  );
+  const imageRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
   const images = Array.from(
     { length: totalImages },
@@ -39,7 +49,35 @@ export default function ProjectModal({
     } else {
       setShouldRender(false);
     }
+
+    // Reset to grid view when reopening
+    setImageColumns(2);
+    setClickedImageIndex(null);
   }, [open]);
+
+  // Scroll to the clicked image after layout change
+  useEffect(() => {
+    if (clickedImageIndex !== null && imageRefs.current[clickedImageIndex]) {
+      const timer = setTimeout(() => {
+        imageRefs.current[clickedImageIndex]?.scrollIntoView({
+          behavior: 'instant',
+          block: 'center',
+        });
+      }, 50); // Small delay to ensure layout has updated
+
+      return () => clearTimeout(timer);
+    }
+  }, [imageColumns, clickedImageIndex]);
+
+  const handleImageClick = (index: number) => {
+    setClickedImageIndex(index);
+    setImageColumns(prevCols => (prevCols === 2 ? 1 : 2));
+  };
+
+  const handleViewToggle = (newColumns: number) => {
+    setImageColumns(newColumns);
+    setClickedImageIndex(null); // Clear clicked index when manually toggling
+  };
 
   return (
     <Dialog open={open} onClose={onClose} className="relative z-50">
@@ -82,6 +120,26 @@ export default function ProjectModal({
                       </a>
                     ))}
                   </div>
+                  <div className="hidden max-w-xs sm:flex sm:gap-x-2 mt-14 xl:mt-0 xl:absolute xl:bottom-0 xl:top-[36rem] text-xs font-medium leading-tight text-slate-700">
+                    <CursorArrowRaysIcon className="inline-block h-5 w-5 shrink-0 xl:mt-px" />
+                    <p>
+                      Click on an image to toggle between{' '}
+                      <span
+                        onClick={() => handleViewToggle(2)}
+                        className="underline text-slate-900 cursor-pointer"
+                      >
+                        grid view
+                      </span>{' '}
+                      and{' '}
+                      <span
+                        onClick={() => handleViewToggle(1)}
+                        className="underline text-slate-900 cursor-pointer"
+                      >
+                        single column view
+                      </span>
+                      .
+                    </p>
+                  </div>
                   <button
                     type="button"
                     onClick={onClose}
@@ -93,11 +151,20 @@ export default function ProjectModal({
                 </div>
               </div>
               {/* GRID IMAGES */}
-              <div className="grid sm:grid-cols-2 gap-x-6 gap-y-6 mt-14 xl:mt-6 xl:mb-6 xl:col-start-1 xl:row-start-1">
+              <div
+                className={clsx(
+                  'grid gap-x-6 gap-y-6 mt-14 sm:mt-6 xl:mt-6 xl:mb-6 xl:col-start-1 xl:row-start-1',
+                  imageColumns === 1 && 'sm:grid-cols-1',
+                  imageColumns === 2 && 'sm:grid-cols-2'
+                )}
+              >
                 {images.map((src, index) => (
-                  <div
-                    className="rounded flex w-full h-auto relative border border-gray-200 shadow-sm box-border select-none"
+                  <button
+                    type="button"
+                    ref={el => (imageRefs.current[index] = el)}
+                    className="pointer-events-none sm:pointer-events-auto rounded flex w-full h-auto relative border border-gray-200 shadow-sm hover:shadow cursor-pointer box-border select-none"
                     key={index}
+                    onClick={() => handleImageClick(index)}
                   >
                     <Image
                       src={src}
@@ -106,7 +173,7 @@ export default function ProjectModal({
                       height={1375}
                       className="rounded"
                     />
-                  </div>
+                  </button>
                 ))}
               </div>
             </>

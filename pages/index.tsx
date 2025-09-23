@@ -1,52 +1,86 @@
+import { useState } from 'react';
 import Image from 'next/image';
+
 import Layout from '../components/Layout';
 import { GitHubIcon, LinkedInIcon } from '../components/Icons';
-import WorkPreview from '../components/WorkPreview';
-import { everdaysItems, freelanceItems, workExamples } from '../data';
+import ExperienceItem from '../components/ExperienceItem';
+import FreelanceProject from '../components/FreelanceProject';
+import ProjectModal from '../components/ProjectModal';
+
+import { freelanceProjects } from '../data';
+
+import { Project } from '../types';
 
 export default function Home() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  const handleOpenModal = (project: Project) => {
+    setIsModalOpen(true);
+    setSelectedProject(project);
+  };
+
+  const onCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedProject(null);
+  };
+
   return (
     <Layout>
       <div>
         <Image
           src="/profile.jpg"
           alt="Sean Hasenstein"
-          width={64}
-          height={64}
-          className="h-16 w-16 bg-gray-500 rounded-full"
+          width={56}
+          height={56}
+          className=" bg-gray-500 rounded-full"
         />
-        <h1 className="mt-6 text-5xl font-bold tracking-tight text-gray-900">
+        <h1 className="mt-2 text-5xl font-bold tracking-tight text-gray-900">
           Sean Hasenstein
         </h1>
-        <h2 className="mt-0.5 font-medium text-xl text-gray-600">
+        <h2 className="mt-0.5 font-medium italic text-xl text-gray-500">
           Senior Full-Stack Software Engineer
         </h2>
         <p className="mt-6 max-w-3xl text-gray-600">
-          Hi, I'm Sean, a Senior Full-Stack Software Engineer based in
-          Sheboygan, Wisconsin. With {new Date().getFullYear() - 2014}+ years of
-          experience, I've helped startups and businesses build scalable
-          platforms using React, Next.js, and Node.js. I thrive on taking
-          products from conception to production in fast-paced, collaborative
-          environments.
-        </p>
-        <p className="mt-6 max-w-3xl text-gray-600">
-          Explore my background and freelance projects below, or{' '}
+          I have {new Date().getFullYear() - 2014}+ years of experience helping{' '}
+          <span className="text-gray-800 font-semibold">startups</span> and{' '}
+          <span className="text-gray-800 font-semibold">businesses</span> build
+          scalable platforms using{' '}
           <a
-            href="https://sean-hasenstein.s3.us-east-1.amazonaws.com/resume.pdf"
+            href="https://reactjs.org/"
             target="_blank"
-            rel="noreferrer"
-            className="underline transition hover:text-black"
+            rel="noreferrer noopener"
+            className="text-gray-800 font-semibold underline"
           >
-            see my full resume here
+            React
           </a>
-          .
+          ,{' '}
+          <a
+            href="https://nextjs.org/"
+            target="_blank"
+            rel="noreferrer noopener"
+            className="text-gray-800 font-semibold underline"
+          >
+            Next.js
+          </a>
+          , and{' '}
+          <a
+            href="https://nodejs.org/"
+            target="_blank"
+            rel="noreferrer noopener"
+            className="text-gray-800 font-semibold underline"
+          >
+            Node.js
+          </a>
+          . I thrive on taking products from conception to production in
+          fast-paced, collaborative environments.
         </p>
-        <div className="mt-7 flex items-center gap-5">
+        <div className="mt-7 flex items-center gap-3">
           <a
             href="https://github.com/seanhasenstein"
             target="_blank"
             rel="noreferrer"
-            className="text-gray-500/50 hover:text-gray-600/50 transition"
+            className="text-gray-500/50 hover:text-gray-600/75 transition"
           >
             <GitHubIcon />
           </a>
@@ -54,66 +88,118 @@ export default function Home() {
             href="https://www.linkedin.com/in/seanhasenstein/"
             target="_blank"
             rel="noreferrer"
-            className="text-gray-500/50 hover:text-gray-600/50 transition"
+            className="text-gray-500/50 hover:text-gray-600/75 transition"
           >
             <LinkedInIcon />
           </a>
         </div>
       </div>
-      {/*  */}
-      <h3 className="mt-10 sm:mt-20 text-gray-900 font-bold max-w-3xl flex justify-between sm:flex-row flex-col">
-        <span>
-          Senior Full-Stack Software Engineer at{' '}
+      <div className="max-w-3xl mt-16 pt-14 border-t border-gray-300/75">
+        <h3 className="mb-12 text-sm font-bold uppercase tracking-widest text-slate-900">
+          Experience
+        </h3>
+        <ExperienceItem
+          dates="NOV 2022 — AUG 2025"
+          title="Senior Full-Stack Software Engineer"
+          company="Everdays"
+          companyUrl="https://everdays.com/"
+          description="Built and shipped features end-to-end from conception to production
+          using React, Next.js, Node.js and Express, deploying almost daily.
+          Collaborated cross-functionally with engineering, design, sales, and
+          marketing teams to deliver business-critical features and
+          integrations."
+          tags={[
+            'JavaScript',
+            'TypeScript',
+            'HTML & SCSS',
+            'React',
+            'Next.js',
+            'Node.js',
+            'Express',
+            'MongoDB',
+            'Redis',
+            'NGINX',
+            'AWS',
+            'Vercel',
+          ]}
+        />
+        <ExperienceItem
+          dates="MAY 2014 — OCT 2022"
+          title="Freelance Full-Stack Web Developer & Designer"
+          description="Delivered complete web solutions for 10+ clients across diverse industries including apparel, education, sports organizations, and manufacturing. Managed entire project lifecycle from client consultation and requirements gathering to deployment and ongoing support."
+          tags={[
+            'JavaScript',
+            'TypeScript',
+            'HTML & CSS',
+            'React',
+            'Next.js',
+            'Gatsby',
+            'Node.js',
+            'MongoDB',
+            'PostgreSQL',
+            'AWS',
+            'Vercel',
+          ]}
+        />
+        <div className="mt-12">
           <a
-            href="https://everdays.com/"
+            href="/resume.pdf"
+            aria-label="View Full Resume (opens in a new tab)"
+            className="inline-flex items-baseline leading-tight hover:text-blue-800 focus-visible:text-blue-800 font-semibold text-gray-800 group text-base"
             target="_blank"
-            rel="noreferrer"
-            className="underline"
+            rel="noreferrer noopener"
           >
-            Everdays
+            <span>
+              View my full{' '}
+              <span className="inline-block">
+                resume
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  className="inline-block h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 group-focus-visible:translate-x-1 group-focus-visible:-translate-y-1 motion-reduce:transition-none ml-1"
+                  aria-hidden="true"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </span>
+            </span>
           </a>
-        </span>
-        <span>Nov. 2022 - Aug. 2025</span>
-      </h3>
-      <div className="mt-4 max-w-3xl border-t border-gray-300/75">
-        <ul className="pl-4">
-          {everdaysItems.map((item, index) => (
-            <li key={index} className="mt-4 max-w-3xl text-gray-600 list-disc">
-              {item}
-            </li>
-          ))}
-        </ul>
+        </div>
       </div>
-      {/*  */}
-      <h3 className="mt-10 sm:mt-20 text-gray-900 font-bold max-w-3xl flex justify-between sm:flex-row flex-col">
-        <span>Freelance Full-Stack Web Developer & Designer</span>
-        <span>May 2014 - Oct. 2022</span>
-      </h3>
-      <div className="mt-4 max-w-3xl border-t border-gray-300/75">
-        <ul className="pl-4">
-          {freelanceItems.map((item, index) => (
-            <li key={index} className="mt-4 max-w-3xl text-gray-600 list-disc">
-              {item}
-            </li>
-          ))}
-        </ul>
+      <div className="max-w-3xl mt-16 pt-14 border-t border-gray-300/75">
+        <h3 className="mb-12 text-sm font-bold uppercase tracking-widest text-slate-900">
+          Freelance Projects
+        </h3>
+        <div>
+          {freelanceProjects.map((project, index) => {
+            return (
+              <div key={index} className="mb-16 last:mb-0">
+                <FreelanceProject
+                  {...project}
+                  handleOpenModal={() => handleOpenModal(project)}
+                />
+              </div>
+            );
+          })}
+        </div>
       </div>
-      <div className="mt-4 max-w-3xl">
-        <ul className="mt-10 grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2">
-          {workExamples.map(example => (
-            <WorkPreview
-              key={example.id}
-              title={example.title}
-              description={example.description}
-              domain={example.domain}
-              img={example.img}
-              height={example.height}
-              width={example.width}
-              href={example.href}
-            />
-          ))}
-        </ul>
-      </div>
+      <ProjectModal
+        open={isModalOpen}
+        onClose={onCloseModal}
+        title={selectedProject?.title}
+        description={selectedProject?.description}
+        tags={selectedProject?.tags}
+        hrefs={selectedProject?.hrefs}
+        projectImagesPath={
+          selectedProject ? selectedProject.projectImagesPath : undefined
+        }
+        totalImages={selectedProject ? selectedProject.totalImages : 0}
+      />
     </Layout>
   );
 }

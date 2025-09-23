@@ -126,6 +126,35 @@ export const freelanceProjects = [
     totalImages: 40,
   },
   {
+    title: 'Monument Company Websites',
+    openModal: false,
+    description:
+      'Designed and developed a series of SEO-optimized marketing websites for local monument companies. Each site includes detailed information about products and services, photo galleries, and integrated contact forms to facilitate customer inquiries and lead generation.',
+    featuredImg: '/zabel-featured.webp',
+    hrefs: [
+      { label: 'zabelmonuments.com', url: 'https://zabelmonuments.com/' },
+      { label: 'fallsmonument.com', url: 'https://fallsmonument.com/' },
+      {
+        label: 'sheboyganmonuments.com',
+        url: 'https://sheboyganmonuments.com/',
+      },
+      {
+        label: 'vangemertmemorials.com',
+        url: 'https://vangemertmemorials.com/',
+      },
+    ],
+    tags: [
+      'TypeScript',
+      'React',
+      'Next.js',
+      'Styled Components',
+      'AWS',
+      'Vercel',
+    ],
+    projectImagesPath: '/projects/monument-companies',
+    totalImages: 44,
+  },
+  {
     title: 'Officials Connection',
     openModal: true,
     description:
@@ -176,7 +205,7 @@ export const freelanceProjects = [
       'Vercel',
     ],
     projectImagesPath: '/projects/lakeshore-officials',
-    totalImages: 20,
+    totalImages: 22,
   },
   {
     title: 'Responsible Driving School LLC',
@@ -190,35 +219,6 @@ export const freelanceProjects = [
     tags: ['TypeScript', 'React', 'Next.js', 'SCSS', 'MongoDB', 'Vercel'],
     projectImagesPath: '/projects/responsible-driving-school',
     totalImages: 8,
-  },
-  {
-    title: 'Monument Company Websites',
-    openModal: false,
-    description:
-      'Designed and developed a series of SEO-optimized marketing websites for local monument companies. Each site includes detailed information about products and services, photo galleries, and integrated contact forms to facilitate customer inquiries and lead generation.',
-    featuredImg: '/zabel-featured.webp',
-    hrefs: [
-      { label: 'zabelmonuments.com', url: 'https://zabelmonuments.com/' },
-      { label: 'fallsmonument.com', url: 'https://fallsmonument.com/' },
-      {
-        label: 'sheboyganmonuments.com',
-        url: 'https://sheboyganmonuments.com/',
-      },
-      {
-        label: 'vangemertmemorials.com',
-        url: 'https://vangemertmemorials.com/',
-      },
-    ],
-    tags: [
-      'TypeScript',
-      'React',
-      'Next.js',
-      'Styled Components',
-      'AWS',
-      'Vercel',
-    ],
-    projectImagesPath: '/projects/monument-companies',
-    totalImages: 44,
   },
   {
     title: 'Cross Country Application',

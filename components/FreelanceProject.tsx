@@ -6,7 +6,7 @@ type Props = {
   description: string;
   featuredImg: string;
   tags: string[];
-  handleOpenModal: () => void;
+  handleOpenModal: (e: React.MouseEvent) => void;
 };
 
 export default function FreelanceProject({

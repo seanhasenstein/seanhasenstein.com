@@ -20,15 +20,15 @@ export default function ExperienceItem({
   return (
     <div
       className={clsx(
-        'group relative grid pb-1 sm:grid-cols-8 sm:gap-8 md:gap-4 last-of-type:mb-0 mb-12',
+        'group relative grid pb-1 sm:grid-cols-8 sm:gap-8 md:gap-4 last-of-type:mb-0 mb-16 xl:mb-12',
         {
-          'transition-all lg:hover:!opacity-100 lg:group-hover/list:opacity-50':
+          'transition-all hover:!opacity-100 group-hover/list:opacity-50':
             !!company && !!companyUrl,
         }
       )}
     >
       {!!company && !!companyUrl ? (
-        <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-gray-200/50" />
+        <div className="absolute -inset-x-4 -inset-y-4 z-0 rounded-md transition motion-reduce:transition-none lg:-inset-x-6 block group-hover:bg-gray-200/50" />
       ) : null}
       <p className="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2">
         {dates}
@@ -48,7 +48,7 @@ export default function ExperienceItem({
               }
             )}
           >
-            <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block" />
+            <span className="absolute -inset-x-4 -inset-y-2.5 rounded md:-inset-x-6 md:-inset-y-4 block" />
             <span>
               {title}
               {company && companyUrl ? (
@@ -61,7 +61,7 @@ export default function ExperienceItem({
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 20 20"
                       fill="currentColor"
-                      className="inline-block h-4 w-4 shrink-0 lg:transition-transform lg:group-hover:translate-x-1 lg:group-hover:-translate-y-1 group-focus-visible:translate-x-1 group-focus-visible:-translate-y-1 motion-reduce:transition-none ml-0 mr-1"
+                      className="inline-block h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 group-focus-visible:translate-x-1 group-focus-visible:-translate-y-1 motion-reduce:transition-none ml-0 mr-1"
                       aria-hidden="true"
                     >
                       <path

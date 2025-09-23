@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Image from 'next/image';
+import { DocumentChartBarIcon } from '@heroicons/react/16/solid';
 
 import Layout from '../components/Layout';
 import { GitHubIcon, LinkedInIcon } from '../components/Icons';
@@ -100,6 +101,14 @@ export default function Home() {
           >
             <LinkedInIcon />
           </a>
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noreferrer"
+            className="text-gray-500/50 hover:text-gray-600/75 transition"
+          >
+            <DocumentChartBarIcon className="h-6 w-6" />
+          </a>
         </div>
       </div>
       <div className="max-w-3xl mt-16 pt-14 border-t border-gray-300/75">
@@ -158,9 +167,8 @@ export default function Home() {
             rel="noreferrer noopener"
           >
             <span>
-              View my full{' '}
-              <span className="inline-block">
-                resume
+              View my full resume
+              <span className="inline-block ml-px">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
@@ -186,7 +194,7 @@ export default function Home() {
         <div>
           {freelanceProjects.map((project, index) => {
             return (
-              <div key={index} className="mb-16 last:mb-0">
+              <div key={index} className="mb-16 xl:mb-12 last:mb-0">
                 <FreelanceProject
                   {...project}
                   handleOpenModal={(e: React.MouseEvent) => {
@@ -199,6 +207,34 @@ export default function Home() {
             );
           })}
         </div>
+      </div>
+      <div className="mt-12">
+        <a
+          href="mailto:seanhasenstein@gmail.com"
+          aria-label="Send me a message (opens in a new tab)"
+          className="inline-flex items-baseline leading-tight hover:text-blue-800 focus-visible:text-blue-800 font-semibold text-gray-800 group text-base"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          <span>
+            Let's work together
+            <span className="inline-block ml-px">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                className="inline-block h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 group-focus-visible:translate-x-1 group-focus-visible:-translate-y-1 motion-reduce:transition-none ml-1"
+                aria-hidden="true"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </span>
+          </span>
+        </a>
       </div>
       <ProjectModal
         open={isModalOpen}

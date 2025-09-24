@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Image from 'next/image';
-import { DocumentChartBarIcon } from '@heroicons/react/16/solid';
+import { IdentificationIcon } from '@heroicons/react/16/solid';
 
 import Layout from '../components/Layout';
 import { GitHubIcon, LinkedInIcon } from '../components/Icons';
@@ -107,7 +107,7 @@ export default function Home() {
             rel="noreferrer"
             className="text-gray-500/50 hover:text-gray-600/75 transition"
           >
-            <DocumentChartBarIcon className="h-6 w-6" />
+            <IdentificationIcon className="h-7 w-7" />
           </a>
         </div>
       </div>

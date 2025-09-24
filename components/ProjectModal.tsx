@@ -110,19 +110,28 @@ export default function ProjectModal({
                     </ul>
                   ) : null}
                   <div className="mt-6">
-                    {hrefs?.map(({ label, url }, index) => (
-                      <a
-                        key={index}
-                        href={url}
-                        target="_blank"
-                        rel="noreferrer noopener"
-                        aria-label={`Visit ${label} (opens in a new tab)`}
-                        className="mt-2 inline-block text-sm font-medium leading-tight underline text-gray-900 focus-visible:underline hover:text-blue-800 focus-visible:text-blue-800 transition-colors"
-                      >
-                        <GlobeAltIcon className="inline-block h-4 w-4 shrink-0 mr-1.5 -mt-0.5" />
-                        {label}
-                      </a>
-                    ))}
+                    {hrefs?.length ? (
+                      hrefs.map(({ label, url }, index) => (
+                        <a
+                          key={index}
+                          href={url}
+                          target="_blank"
+                          rel="noreferrer noopener"
+                          aria-label={`Visit ${label} (opens in a new tab)`}
+                          className="mt-2 inline-block text-sm font-medium leading-tight underline text-gray-900 focus-visible:underline hover:text-blue-800 focus-visible:text-blue-800 transition-colors"
+                        >
+                          <GlobeAltIcon className="inline-block h-4 w-4 shrink-0 mr-1.5 -mt-0.5" />
+                          {label}
+                        </a>
+                      ))
+                    ) : (
+                      <div className="flex">
+                        <GlobeAltIcon className="inline-block h-4 w-4 shrink-0 mr-1.5 mt-0.5" />
+                        <p className="mt-0 text-sm leading-normal text-slate-700 italic">
+                          This project is currently not available online.
+                        </p>
+                      </div>
+                    )}
                   </div>
                   <div className="hidden max-w-xs sm:flex sm:gap-x-2 mt-14 xl:mt-0 xl:absolute xl:bottom-0 xl:top-[35rem] text-xs font-medium leading-normal text-slate-700">
                     <CursorArrowRaysIcon className="inline-block h-5 w-5 shrink-0 xl:mt-[2px]" />
@@ -147,7 +156,7 @@ export default function ProjectModal({
                   <button
                     type="button"
                     onClick={onClose}
-                    className="fixed xl:absolute top-6 right-9 xl:top-[-2.5rem] xl:right-[-2.5rem] p-2 flex items-center justify-center"
+                    className="fixed xl:absolute top-6 right-6 lg:right-9 xl:top-[-2.5rem] xl:right-[-2.5rem] p-2 flex items-center justify-center"
                   >
                     <XMarkIcon className="inline-block h-5 w-5 shrink-0 text-gray-500" />
                     <span className="sr-only">Close modal</span>

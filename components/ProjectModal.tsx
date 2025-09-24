@@ -34,6 +34,7 @@ export default function ProjectModal({
   const [clickedImageIndex, setClickedImageIndex] = useState<number | null>(
     null
   );
+  const modalRef = useRef<HTMLDivElement | null>(null);
   const imageRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
   const images = Array.from(
@@ -82,7 +83,10 @@ export default function ProjectModal({
   return (
     <Dialog open={open} onClose={onClose} className="relative z-50">
       <div className="fixed inset-0 flex w-screen items-center justify-center p-4 bg-black/75">
-        <Dialog.Panel className="relative overflow-y-auto w-full max-w-[1440px] h-full xl:h-[700px] xl:max-h-[90vh] rounded bg-white shadow-lg pb-14 xl:pt-0 xl:pb-0 px-14 xl:grid xl:grid-cols-[1fr_320px] xl:gap-x-14">
+        <Dialog.Panel
+          ref={modalRef}
+          className="relative overflow-y-auto w-full max-w-[1440px] h-full xl:h-[700px] xl:max-h-[90vh] rounded bg-white shadow-lg pb-14 xl:pt-0 xl:pb-0 px-14 xl:grid xl:grid-cols-[1fr_320px] xl:gap-x-14"
+        >
           {shouldRender && (
             <>
               {/* PROJECT INFO */}
@@ -120,8 +124,8 @@ export default function ProjectModal({
                       </a>
                     ))}
                   </div>
-                  <div className="hidden max-w-xs sm:flex sm:gap-x-2 mt-14 xl:mt-0 xl:absolute xl:bottom-0 xl:top-[36rem] text-xs font-medium leading-tight text-slate-700">
-                    <CursorArrowRaysIcon className="inline-block h-5 w-5 shrink-0 xl:mt-px" />
+                  <div className="hidden max-w-xs sm:flex sm:gap-x-2 mt-14 xl:mt-0 xl:absolute xl:bottom-0 xl:top-[35rem] text-xs font-medium leading-normal text-slate-700">
+                    <CursorArrowRaysIcon className="inline-block h-5 w-5 shrink-0 xl:mt-[2px]" />
                     <p>
                       Click on an image to toggle between{' '}
                       <span
@@ -143,7 +147,7 @@ export default function ProjectModal({
                   <button
                     type="button"
                     onClick={onClose}
-                    className="absolute top-2.5 right-3.5 xl:top-[-2.5rem] xl:right-[-2.5rem] p-2 flex items-center justify-center"
+                    className="fixed xl:absolute top-6 right-9 xl:top-[-2.5rem] xl:right-[-2.5rem] p-2 flex items-center justify-center"
                   >
                     <XMarkIcon className="inline-block h-5 w-5 shrink-0 text-gray-500" />
                     <span className="sr-only">Close modal</span>
@@ -153,7 +157,7 @@ export default function ProjectModal({
               {/* GRID IMAGES */}
               <div
                 className={clsx(
-                  'grid gap-x-6 gap-y-6 mt-14 sm:mt-6 xl:mt-6 xl:mb-6 xl:col-start-1 xl:row-start-1',
+                  'grid gap-x-6 gap-y-6 mt-14 sm:mt-6 xl:mt-6 xl:mb-0 xl:col-start-1 xl:row-start-1',
                   imageColumns === 1 && 'sm:grid-cols-1',
                   imageColumns === 2 && 'sm:grid-cols-2'
                 )}
@@ -176,6 +180,14 @@ export default function ProjectModal({
                   </button>
                 ))}
               </div>
+              <button
+                onClick={() =>
+                  modalRef.current?.scrollTo({ top: 0, behavior: 'smooth' })
+                }
+                className="mt-10 xl:mt-10 mb-11 mx-auto flex items-center justify-center text-sm font-medium leading-tight text-gray-700 underline hover:text-black focus-visible:text-blue-800 transition-colors"
+              >
+                Back to the top
+              </button>
             </>
           )}
         </Dialog.Panel>

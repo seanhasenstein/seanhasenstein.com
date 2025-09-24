@@ -171,7 +171,7 @@ export default function ProjectModal({
                     onClick={() => handleImageClick(index)}
                   >
                     <Image
-                      src={src}
+                      src={`${src}?v=1`}
                       alt={`Image ${index + 1}`}
                       width={2500}
                       height={1375}

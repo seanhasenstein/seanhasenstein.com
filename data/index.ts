@@ -224,7 +224,7 @@ export const freelanceProjects = [
     title: 'Cross Country Application',
     openModal: false,
     description:
-      'Developed a comprehensive team management application to streamline my work as a high school cross country coach. Features athlete roster management, meet statistics tracking, automated mile split calculations, letter point determination, season performance analytics, and PDF report generation for athletes and families. This is currently a personal project and not publicly available.',
+      'Developed a comprehensive team management application to streamline my work as a high school cross country coach. Features athlete roster management, meet statistics tracking, automated mile split calculations, letter point determination, season performance analytics, and PDF report generation for athletes and families.',
     featuredImg: '/cross-country-featured.webp',
     hrefs: [],
     tags: ['TypeScript', 'React', 'Next.js', 'SCSS', 'Prisma', 'PostgreSQL'],

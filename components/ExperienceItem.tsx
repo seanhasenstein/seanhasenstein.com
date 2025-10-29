@@ -39,7 +39,7 @@ export default function ExperienceItem({
             href={companyUrl}
             target="_blank"
             rel="noreferrer noopener"
-            aria-label="Senior Full-Stack Software Engineer at Everdays (opens in a new tab)"
+            aria-label="Full-Stack Software Engineer at Everdays (opens in a new tab)"
             className={clsx(
               'inline-flex items-baseline font-medium leading-tight text-slate-900 group text-base',
               {

@@ -40,7 +40,7 @@ export default function Home() {
           Sean Hasenstein
         </h1>
         <h2 className="mt-0.5 font-medium italic text-xl text-gray-500">
-          Senior Full-Stack Software Engineer
+          Full-Stack Software Engineer
         </h2>
         <p className="mt-6 max-w-3xl text-gray-600">
           I have {new Date().getFullYear() - 2014}+ years of experience helping{' '}
@@ -117,8 +117,8 @@ export default function Home() {
         </h3>
         <ExperienceItem
           dates="NOV 2022 — AUG 2025"
-          title="Senior Full-Stack Software Engineer"
-          company="Everdays"
+          title="Full-Stack Software Engineer"
+          company="Everdays (remote)"
           companyUrl="https://everdays.com/"
           description="Built and shipped features end-to-end from conception to production
           using React, Next.js, Node.js and Express, deploying almost daily.

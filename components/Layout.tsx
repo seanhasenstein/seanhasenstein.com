@@ -7,7 +7,7 @@ type Props = {
 };
 
 export default function Layout(props: Props) {
-  const defaultTitle = 'Sean Hasenstein | Senior Full-Stack Software Engineer';
+  const defaultTitle = 'Sean Hasenstein | Full-Stack Software Engineer';
 
   return (
     <div className="h-screen flex flex-col justify-between">

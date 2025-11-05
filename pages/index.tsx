@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Image from 'next/image';
-import { IdentificationIcon } from '@heroicons/react/16/solid';
+// import { IdentificationIcon } from '@heroicons/react/16/solid';
 
 import Layout from '../components/Layout';
 import { GitHubIcon, LinkedInIcon } from '../components/Icons';
@@ -76,14 +76,24 @@ export default function Home() {
           . I thrive on taking products from conception to production in
           fast-paced, collaborative environments.
         </p>
-        <a
-          href="mailto:seanhasenstein@gmail.com"
-          target="_blank"
-          rel="noreferrer noopener"
-          className="bg-slate-900 text-white inline-block px-4 py-2.5 mt-6 rounded-md text-sm font-semibold leading-tight hover:bg-black focus-visible:bg-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 transition-all"
-        >
-          Send me a message
-        </a>
+        <div className="flex flex-col sm:flex-row sm:items-center sm:gap-4">
+          <a
+            href="mailto:seanhasenstein@gmail.com"
+            target="_blank"
+            rel="noreferrer noopener"
+            className="bg-slate-900 border-2 border-slate-900 text-white text-center inline-block px-4 py-2 mt-6 rounded-md text-sm font-semibold leading-tight hover:bg-black focus-visible:bg-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 transition-all"
+          >
+            Send me a message
+          </a>
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noreferrer noopener"
+            className="border-2 border-slate-900 text-slate-900 text-center inline-block px-4 py-2 mt-4 sm:mt-6 rounded-md text-sm font-semibold leading-tight hover:border-black focus-visible:bg-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 transition-all"
+          >
+            See my resume
+          </a>
+        </div>
         <div className="mt-7 flex items-center gap-3">
           <a
             href="https://github.com/seanhasenstein"
@@ -101,14 +111,14 @@ export default function Home() {
           >
             <LinkedInIcon />
           </a>
-          <a
+          {/* <a
             href="/resume.pdf"
             target="_blank"
             rel="noreferrer"
             className="text-gray-500/50 hover:text-gray-600/75 transition"
           >
             <IdentificationIcon className="h-7 w-7" />
-          </a>
+          </a> */}
         </div>
       </div>
       <div className="max-w-3xl mt-16 pt-14 border-t border-gray-300/75">

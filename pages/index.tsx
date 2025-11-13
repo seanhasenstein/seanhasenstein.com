@@ -130,7 +130,7 @@ export default function Home() {
           title="Full-Stack Software Engineer"
           company="Everdays (remote)"
           companyUrl="https://everdays.com/"
-          description="Built and shipped features end-to-end from conception to production
+          description="Everdays is an insurance tech startup that combines an innovative digital platform with life insurance products. While there, I built and shipped features end-to-end from conception to production
           using React, Next.js, Node.js and Express, deploying almost daily.
           Collaborated cross-functionally with engineering, design, sales, and
           marketing teams to deliver business-critical features and
